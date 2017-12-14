@@ -1,4 +1,5 @@
 FROM openjdk:8-jdk-alpine
+RUN apk update && apk add libc6-compat
 VOLUME /tmp
 ADD target/kafka-streams-0.0.1-SNAPSHOT.jar  app.jar
 ENV JAVA_OPTS=""
