@@ -19,10 +19,10 @@ import org.springframework.context.event.EventListener;
 public class KafkaStreamsApplication {
 
   private static final String APPLICATION_ID = "wordcount-app";
-  private static final String SERVER_CONFIG = "192.168.99.100:9092";
+  private static final String SERVER_CONFIG = "127.0.0.1:9092";
   private static final String RESET_CONFIG = "earliest";
   private static final String INPUT_TOPIC = "word-count-input";
-  private static final String OUTPUT_TOPIC = "word-count-input";
+  private static final String OUTPUT_TOPIC = "word-count-output";
   private static final String SPLIT_CHARACTER = " ";
   
   public static void main(String[] args) {
