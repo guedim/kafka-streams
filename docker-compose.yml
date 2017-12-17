@@ -11,11 +11,11 @@ services:
       - "9092:9092"
 
   # Define a service for using the influx CLI tool.
-#  kafka-streams:
-#    image: guedim/kafka-streams:0.0.1-SNAPSHOT
-#    ports: 
-#      - "8080:8080"
-#    depends_on:
-#      - kafka-zookeeper
-#    links:
-#      - kafka-zookeeper
+  kafka-streams:
+    image: guedim/kafka-streams:0.0.1-SNAPSHOT
+    ports: 
+      - "8080:8080"
+    depends_on:
+      - kafka-zookeeper
+    links:
+      - kafka-zookeeper
