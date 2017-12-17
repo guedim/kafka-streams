@@ -1,4 +1,4 @@
-version: '2'
+version: '2.1'
 
 services:
   # Define the zookeeper and kafka service
@@ -9,6 +9,7 @@ services:
     ports:
       - "2181:2181"
       - "9092:9092"
+  
   # Define the kafka manager service
   kafka-manager:
     image: sheepkiller/kafka-manager:stable
@@ -20,6 +21,31 @@ services:
       - kafka-zookeeper
     links:
       - kafka-zookeeper
+  
+  # Define the Zookeeper web and api service
+  zoonavigator-web:
+    image: elkozmon/zoonavigator-web:latest
+    container_name: zoonavigator-web
+    environment:
+      SERVER_HTTP_PORT: 8000
+      API_HOST: "api"
+      API_PORT: 9001
+    ports:
+     - "8000:8000"
+    links:
+     - zoonavigator-api
+    depends_on:
+     - zoonavigator-api
+    restart: always
+  zoonavigator-api:
+    image: elkozmon/zoonavigator-api:latest
+    container_name: zoonavigator-api
+    environment:
+      SERVER_HTTP_PORT: 9001
+    restart: always
+    depends_on:
+     - kafka-zookeeper
+
 
   # Define a service for using kafka and process streams
   kafka-streams:
