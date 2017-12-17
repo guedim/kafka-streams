@@ -9,8 +9,19 @@ services:
     ports:
       - "2181:2181"
       - "9092:9092"
+  # Define the kafka manager service
+  kafka-manager:
+    image: sheepkiller/kafka-manager:stable
+    environment:
+      ZK_HOSTS: kafka-zookeeper
+    ports: 
+      - "9000:9000"
+    depends_on:
+      - kafka-zookeeper
+    links:
+      - kafka-zookeeper
 
-  # Define a service for using the influx CLI tool.
+  # Define a service for using kafka and process streams
   kafka-streams:
     image: guedim/kafka-streams:0.0.1-SNAPSHOT
     ports: 
