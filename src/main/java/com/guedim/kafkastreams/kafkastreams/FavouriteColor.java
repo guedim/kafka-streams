@@ -53,6 +53,7 @@ public class FavouriteColor {
 		kTableColorOutput.to(Serdes.String(), Serdes.Long(), OUTPUT_TOPIC);
 
 		KafkaStreams streams = new KafkaStreams(builder, config);
+		streams.cleanUp();
 		streams.start();
 
 		// Print the kafkaStream topology
