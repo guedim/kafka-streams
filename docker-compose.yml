@@ -5,17 +5,17 @@ services:
   kafka-zookeeper:
     image: johnnypark/kafka-zookeeper:1.0.0
     environment:
-      ADVERTISED_HOST: 192.168.99.100
+      ADVERTISED_HOST: 127.0.0.1
     ports:
       - "2181:2181"
       - "9092:9092"
 
   # Define a service for using the influx CLI tool.
-  kafka-streams:
-    image: guedim/kafka-streams:0.0.1-SNAPSHOT
-    ports: 
-      - "8080:8080"
-    depends_on:
-      - kafka-zookeeper
-    links:
-      - kafka-zookeeper
+#  kafka-streams:
+#    image: guedim/kafka-streams:0.0.1-SNAPSHOT
+#    ports: 
+#      - "8080:8080"
+#    depends_on:
+#      - kafka-zookeeper
+#    links:
+#      - kafka-zookeeper
