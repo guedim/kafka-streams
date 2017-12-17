@@ -46,6 +46,7 @@ public class FavouriteColor {
 
 		// 6. Read data as Ktable
 		KTable<String, String> kTableColorInput = builder.table(MIDDLE_TOPIC);
+		// 7. Group and count by color
 		KTable<String, Long> kTableColorOutput = kTableColorInput
 				.groupBy((user, color) -> new KeyValue<>(color, color))
 				.count("FavColor");
