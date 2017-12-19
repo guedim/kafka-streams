@@ -39,6 +39,9 @@ public class FavouriteColor {
 		config.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, RESET_CONFIG);
 		config.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass());
 		config.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass());
+		// we disable the cache to demonstrate all the "steps" involved in the transformation - not recommended in prod
+	    config.put(StreamsConfig.CACHE_MAX_BYTES_BUFFERING_CONFIG, "0");
+
 
 		KStreamBuilder builder = new KStreamBuilder();
 
