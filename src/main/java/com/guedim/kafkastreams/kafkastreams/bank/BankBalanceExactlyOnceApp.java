@@ -57,7 +57,5 @@ public class BankBalanceExactlyOnceApp {
 
     // shutdown hook to correctly close the streams application
     Runtime.getRuntime().addShutdownHook(new Thread(streams::close));
-  }
-
-  
+  } 
 }

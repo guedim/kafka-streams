@@ -7,11 +7,10 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import static com.guedim.kafkastreams.kafkastreams.bank.Properties.INPUT_TOPIC;
 
 public final class ProducerRecordModel {
 
-  private static final String INPUT_TOPIC = "bank-transactions";
-  
   public static ProducerRecord<String, String> newRandomTransaction(String name) {
     // creates an empty json {}
     ObjectNode transaction = JsonNodeFactory.instance.objectNode();
