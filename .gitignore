@@ -7,10 +7,12 @@ target/
 .factorypath
 .project
 .settings
+.settings/
 .springBeans
 
 ### IntelliJ IDEA ###
 .idea
+.idea/
 *.iws
 *.iml
 *.ipr
